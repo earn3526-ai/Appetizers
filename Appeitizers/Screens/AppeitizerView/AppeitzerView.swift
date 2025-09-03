@@ -28,7 +28,12 @@ struct AppeitzerView: View {
                 if viewModel.isDetailPageShown {
                     DetailsCardView(appitizerData: viewModel.selectedAppeitizer ?? MockData.sampleAppetizer, toShow: $viewModel.isDetailPageShown)
                 }
-                    
+            if viewModel.isLoading{
+                ProgressView()
+                    .scaleEffect(1.5)
+                    .foregroundStyle(Color.pink)
+            }
+ 
                 
             }.onAppear{
                 viewModel.getAppeitizers()
@@ -37,12 +42,7 @@ struct AppeitzerView: View {
                 Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
             }
             
-            if viewModel.isLoading{
-                ProgressView()
-                    .scaleEffect(1.5)
-                    .foregroundStyle(Color.pink)
-            }
-        
+       
         }
     }
     

@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct APButton: View {
+    var title: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(title)
+            .font(.system(size: 20, weight: .bold,design: .rounded))
+            .foregroundStyle(Color.white)
+            .padding(.leading)
+            .padding(.trailing)
+            .frame( height: 45)
+            .background(Color.pink)
+            .cornerRadius(10)
     }
 }
 
 #Preview {
-    APButton()
+    APButton(title: "Test Title")
 }
