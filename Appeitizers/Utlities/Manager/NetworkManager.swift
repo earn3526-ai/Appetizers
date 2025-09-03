@@ -40,6 +40,10 @@ final class NetworkManager{
             do{
                 let decoder = JSONDecoder()
                 let decodedResponse = try decoder.decode(AppeitzerResponse.self, from: data)
+                if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers),
+                   let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+                    print(String(decoding: jsonData, as: UTF8.self))
+                } 
                 completion(.success(decodedResponse.recipes))
             }catch{
                 completion(.failure(.invalidData))

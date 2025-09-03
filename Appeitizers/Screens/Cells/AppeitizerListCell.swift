@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct AppeitizerListCell: View {
     var appietizer: Appeitizer
     var body: some View {
         HStack{
-            Image("samplePizza")
+            KFImage.url(URL(string: appietizer.image))
                 .resizable()
+                .placeholder({
+                    Image("food-placeholder")
+                        .resizable()
+                })
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 140, height: 90)
                 .cornerRadius(5)
