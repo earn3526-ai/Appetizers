@@ -10,9 +10,10 @@ import Foundation
 
 final class AppeitizersViewModel: ObservableObject{
     @Published var appeitizersList: [Appeitizer] = []
+    @Published var selectedAppeitizer: Appeitizer?
     @Published var alertItem: AlertItem?
     @Published var isLoading = false
-    
+    @Published var isDetailPageShown: Bool = false
     
     func getAppeitizers(){
         isLoading = true
