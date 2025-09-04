@@ -18,7 +18,7 @@ struct AppeitzerView: View {
                 List(viewModel.appeitizersList) {appietizer in
                     
                     AppeitizerListCell(appietizer: appietizer)
-                        .onTapGesture {
+                    .onTapGesture {
                             viewModel.selectedAppeitizer = appietizer
                             viewModel.isDetailPageShown = true
                         }
