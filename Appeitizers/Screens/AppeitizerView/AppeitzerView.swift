@@ -18,6 +18,8 @@ struct AppeitzerView: View {
                 List(viewModel.appeitizersList) {appietizer in
                     
                     AppeitizerListCell(appietizer: appietizer)
+      //                  .listRowSeparator(.visible)
+     //                   .listRowSeparatorTint(Color.pink)
                     .onTapGesture {
                             viewModel.selectedAppeitizer = appietizer
                             viewModel.isDetailPageShown = true

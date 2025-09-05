@@ -12,6 +12,7 @@ struct DetailsCardView: View {
     
     var appitizerData: Appeitizer
     @Binding var toShow: Bool
+    @EnvironmentObject var orders: Order
     
     var body: some View {
         ZStack {
@@ -59,7 +60,8 @@ struct DetailsCardView: View {
                     }
                     
                     Button{
-                        
+                        orders.add(appitizerData)
+                        toShow = false
                     }label: {
                         APButton(title: "$\(appitizerData.userId) - Add To Order")
                     }.padding(.bottom)
